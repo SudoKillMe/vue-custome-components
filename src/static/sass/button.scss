@@ -1,0 +1,27 @@
+@import 'common.scss';
+@import 'mixin.scss';
+
+.mf-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    color: #fff;
+    border: 1px solid $gray;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.mf-button {
+    @include button-and-hover(primary, #fff, #eee);
+    @include button-and-hover(info, $blue, $dark-blue);
+    @include button-and-hover(danger, $red, $dark-red);
+    @include button-and-hover(success, $green, $dark-green);
+    @include button-and-hover(warning, $yellow, $dark-yellow);
+}

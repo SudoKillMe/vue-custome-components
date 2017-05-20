@@ -1,0 +1,31 @@
+
+
+// col的宽度
+@mixin col-width() {
+  @for $span from 1 through 24 {
+    &-#{$span} {
+        width: $span / 24 * 100%;
+    }
+  }
+}
+
+// 按钮及hover的样式
+@mixin button-and-hover($type, $color, $hover-color) {
+
+  &--#{$type} {
+
+    @if $type == 'primary' {
+      color: #000;
+      background-color: #fff;
+      border-color: #eee;
+    } @else {
+      background-color: $color;
+      border-color: $color;
+    }
+
+    &:hover {
+      background-color: $hover-color;
+      border-color: $hover-color;
+    }
+  }
+}
