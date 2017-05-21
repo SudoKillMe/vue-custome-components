@@ -1,7 +1,19 @@
+@charset 'utf-8';
+@import 'common';
 
+//row的flex模式的对齐方式
+$justify-list: flex-start, flex-end, center, space-between, space-around;
+@mixin row-justify {
+  @each $type in $justify-list {
+    .justify--#{$type} {  
+      justify-content: #{$type};
+    }
+  }
+
+}
 
 // col的宽度
-@mixin col-width() {
+@mixin col-width {
   @for $span from 1 through 24 {
     &-#{$span} {
         width: $span / 24 * 100%;
@@ -10,22 +22,55 @@
 }
 
 // 按钮及hover的样式
-@mixin button-and-hover($type, $color, $hover-color) {
+$button-style-map: (
+  default: (
+    background-color: #fff,
+    border-color: #eee,
+    hover-bgc: #eee,
+    hover-bdc: #eee
+  ),
+  primary: (
+    background-color: #fff,
+    border-color: #eee,
+    hover-bgc: #eee,
+    hover-bdc: #eee
+  ),
+  info: (
+    background-color: $blue,
+    border-color: $blue,
+    hover-bgc: $dark-blue,
+    hover-bdc: $dark-blue
+  ),
+  danger: (
+    background-color: $red,
+    border-color: $red,
+    hover-bgc: $dark-red,
+    hover-bdc: $dark-red
+  ),
+  success: (
+    background-color: $green,
+    border-color: $green,
+    hover-bgc: $dark-green,
+    hover-bdc: $dark-green
+  ),
+  warning: (
+    background-color: $yellow,
+    border-color: $yellow,
+    hover-bgc: $dark-yellow,
+    hover-bdc: $dark-yellow
+  )
+);
+@mixin button-and-hover {
 
-  &--#{$type} {
+  @each $type, $map in $button-style-map {
+    .mf-button--#{$type} {
+      background-color: map-get($map, background-color);
+      border-color: map-get($map, border-color );
 
-    @if $type == 'primary' {
-      color: #000;
-      background-color: #fff;
-      border-color: #eee;
-    } @else {
-      background-color: $color;
-      border-color: $color;
-    }
-
-    &:hover {
-      background-color: $hover-color;
-      border-color: $hover-color;
+      &:hover {
+        background-color: map-get($map, hover-bgc);
+        border-color: map-get($map, hover-bdc);
+      }
     }
   }
 }

@@ -13,10 +13,9 @@
         computed: {
             gutter: function() {
                 let parent = this.$parent;
-                console.log(parent);
-//                while ( parent && parent.$options.componentName !== 'MFRow' ) {
-//                    parent = parent.$parent;
-//                }
+               while ( parent && parent.$options.componentName !== 'MFRow' ) {
+                   parent = parent.$parent;
+               }
 
                 return parent ? parent.gutter : 0;
             }
