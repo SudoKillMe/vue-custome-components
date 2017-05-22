@@ -1,7 +1,7 @@
 @charset 'utf-8';
 @import 'common';
 
-//row的flex模式的对齐方式
+// row的flex模式的对齐方式
 $justify-list: flex-start, flex-end, center, space-between, space-around;
 @mixin row-justify {
   @each $type in $justify-list {
@@ -9,17 +9,64 @@ $justify-list: flex-start, flex-end, center, space-between, space-around;
       justify-content: #{$type};
     }
   }
-
 }
+// row的flex模式的垂直对齐方式
+$align-list: flex-start, flex-end, center, baseline, stretch;
+@mixin row-align {
+  @each $type in $align-list {
+    .align--#{$type} {
+      align-items: #{$type}
+    }
+  }
+}
+
 
 // col的宽度
 @mixin col-width {
   @for $span from 1 through 24 {
-    &-#{$span} {
+    .mf-col-#{$span} {
         width: $span / 24 * 100%;
     }
   }
 }
+// col的响应式宽度
+$breakpoint-map: (
+  xs: (
+    max-width: 768px
+  ),
+  sm: (
+    min-width: 768px
+  ),
+  md: (
+    min-width: 992px
+  ),
+  lg: (
+    min-width: 1200px
+  )
+);
+@mixin col-reactive-width {
+  @each $type, $map in $breakpoint-map {
+    @if $type == xs {  // < 768px
+      @media ( max-width: map-get($map, max-width) ) {
+        @for $span from 1 through 24 {
+          .mf-col-xs-#{$span} {
+            width: $span / 24 * 100%;
+          }
+        }
+      }
+    } @else {
+      @media ( min-width: map-get($map, min-width) ) {
+        @for $span from 1 through 24 {
+          .mf-col-#{$type}-#{$span} {
+            width: $span / 24 * 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+
 
 // 按钮及hover的样式
 $button-style-map: (

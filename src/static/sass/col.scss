@@ -4,5 +4,7 @@
 .mf-col {
   float: left;
   box-sizing: border-box;
-  @include col-width;
 }
+
+@include col-width;
+@include col-reactive-width;

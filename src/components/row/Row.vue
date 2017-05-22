@@ -17,6 +17,10 @@
             justify: {
                 type: String,
                 default: 'start'
+            },
+            align: {
+                type: String,
+                default: 'center'
             }
         },
 
@@ -25,14 +29,13 @@
             let classList = ['mf-row'];
 
             if ( this.type === 'flex' ) {
-                classList.push('mf-row--flex', `justify--${this.justify}` );
+                classList.push('mf-row--flex', `justify--${this.justify}`, `align--${this.align}` );
             }
 
             if ( this.gutter ) {
                 styles.paddingLeft = this.gutter / 2 + 'px';
                 styles.paddingRight = styles.paddingLeft;
             }
-            console.log(this);
             return h('div', {
                 class: classList,
                 style: styles
