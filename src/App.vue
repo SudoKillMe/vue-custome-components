@@ -31,7 +31,11 @@
           <mf-checkbox name="checkbox-group1" :label="22222">我是checkbox1</mf-checkbox>
           <mf-checkbox name="checkbox-group1" :label="33333">我是checkbox1</mf-checkbox>
       </mf-checkbox-group>
-
+      <hr>
+      <div class="input-wrap">   
+         <mf-input placeholder="我是placeholder"></mf-input>
+      </div>
+     
 
 
   </div>
@@ -45,6 +49,7 @@ import MFRadio from './components/radio/Radio';
 import MFRadioGroup from './components/radio/RadioGroup';
 import MFCheckbox from './components/checkbox/Checkbox';
 import MFCheckboxGroup from './components/checkbox/CheckboxGroup';
+import MFInput from './components/input/Input';
 export default {
   name: 'App',
 
@@ -62,7 +67,8 @@ export default {
     'mf-radio': MFRadio,
     'mf-radio-group': MFRadioGroup,
     'mf-checkbox': MFCheckbox,
-    'mf-checkbox-group': MFCheckboxGroup
+    'mf-checkbox-group': MFCheckboxGroup,
+    'mf-input': MFInput
   },
   methods: {
       input(e) {
@@ -75,6 +81,7 @@ export default {
 <style>
     body { padding: 20px 30px; }
     .text { background: gray }
+    .input-wrap { width: 200px }
 </style>
 
 
