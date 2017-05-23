@@ -1,5 +1,5 @@
 <template>
-  <div class="mf-radio-group">
+  <div class="mf-radio-group" v-model="model">
       <slot></slot>
   </div>
 </template>
@@ -11,6 +11,17 @@ export default {
 
   props: {
       value: {}
+  },
+
+  computed: {
+    model: {
+      get() {
+        return this.value;
+      },
+      set(val) {
+        this.$emit('change', val);
+      }
+    }
   }
 }
 </script>

@@ -1,6 +1,6 @@
 @import "common";
 
-.mf-radio {
+.mf-radio{
     vertical-align: middle;
     display: inline-block;
     position: relative;
@@ -32,7 +32,8 @@
     border-radius: 50%;
     position: relative;
 }
-.mf-radio--inner.is-checked {
+
+.is-checked > .mf-radio--inner {
     border-color: $blue;
     &:after {
         content: '';
@@ -46,6 +47,17 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+}
+
+
+.is-disabled > .mf-radio--inner {
+    border-color: $dark-gray;
+    &:after {
+        background-color: $dark-gray;
+    }
+}
+.is-disabled + .mf-radio--text {
+    color: $dark-gray;
 }
 
 .mf-radio--text {
