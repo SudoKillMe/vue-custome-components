@@ -33,10 +33,10 @@
       </mf-checkbox-group>
       <hr>
       <div class="input-wrap">   
-         <mf-input placeholder="我是placeholder"></mf-input>
+         <mf-input autocomplete :autocomplete-list="list" placeholder="我是placeholder"></mf-input>
       </div>
      
-
+        <span>dddddddddddddddddddddddddd</span>
 
   </div>
 </template>
@@ -56,7 +56,11 @@ export default {
   data() {
       return {
           checkList: true,
-          groupList: []
+          groupList: [],
+          list: [
+              { title: 'title', content: 'content' },
+              { title: 'title2', content: 'content2' }
+          ]
       }
   },
 
