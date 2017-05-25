@@ -6,11 +6,11 @@
         :placeholder="placeholder"
         @focus="innerFocus"
         @blur="innerBlur"
-        v-model="value">
+        v-model="model">
       <div class="mf-input-autocomplete" v-if="_autocomplete" >
         <div class="mf-autocomplete-item"
            v-for="item in autocompleteList"
-           @click.stop.prevent="chooseItem(item)" >
+           @click="chooseItem" >
           <h4 class="mf-autocomplete-item-title">{{ item.title }}</h4>
           <p class="mf-autocomplete-item-desc">{{ item.content }}</p>
         </div>
@@ -37,24 +37,34 @@ export default {
   },
 
   computed: {
+    model: {
+      get() {
+        return this.value;
+      },
+      set(val) {
+        this.value = val;
+      }
+    },
     _autocomplete() {
       return this.focus && this.autocomplete;
     }
   },
 
   methods: {
+
     innerFocus() {
       console.log('focus');
       this.focus = true;
       this.$emit('focus');
     },
-    innerBlur() {
+    innerBlur(e) {
       console.log('blur');
       this.focus = false;
       this.$emit('blur');
     },
     chooseItem(item) {
-      this.value = item.title;
+      console.log('chooseItem');
+      this.model = item.title;
       console.log(item);
     }
   }
