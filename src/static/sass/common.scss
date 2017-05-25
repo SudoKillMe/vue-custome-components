@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'mf-font';
+  src: url('../fonts/fontawesome-webfont.ttf');
+}
 
 $font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
 
@@ -19,5 +23,5 @@ $dark-gray:         #bfc5ca;
 
 $black:             #1f2d3d;
 
-
-body { font-family: $font-family }
+// input
+$input-normal-height:   34px;

@@ -1,0 +1,11 @@
+@import "common";
+body { font-family: $font-family }
+//body {
+//  font-family:mf-font; }
+[class^=mf-icon-] {
+  font-family: mf-font!important;
+  display: inline-block;
+  vertical-align: baseline;
+  line-height: 1;
+  font-weight: 400;
+}

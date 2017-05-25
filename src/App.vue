@@ -37,6 +37,11 @@
       </div>
      
         <span>dddddddddddddddddddddddddd</span>
+      <hr>
+      <br><br>
+      <div class="input-wrap">
+          <mf-input-number></mf-input-number>
+      </div>
 
   </div>
 </template>
@@ -50,6 +55,7 @@ import MFRadioGroup from './components/radio/RadioGroup';
 import MFCheckbox from './components/checkbox/Checkbox';
 import MFCheckboxGroup from './components/checkbox/CheckboxGroup';
 import MFInput from './components/input/Input';
+import MFInputNumber from './components/input/InputNumber';
 export default {
   name: 'App',
 
@@ -72,7 +78,8 @@ export default {
     'mf-radio-group': MFRadioGroup,
     'mf-checkbox': MFCheckbox,
     'mf-checkbox-group': MFCheckboxGroup,
-    'mf-input': MFInput
+    'mf-input': MFInput,
+    'mf-input-number': MFInputNumber
   },
   methods: {
       input(e) {
