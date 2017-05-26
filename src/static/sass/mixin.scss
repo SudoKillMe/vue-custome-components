@@ -121,3 +121,20 @@ $button-style-map: (
     }
   }
 }
+
+// 字体图标
+$font-icon-map: (
+  plus:           ( content: '\f067' ),
+  minus:          ( content: '\f068' ),
+  caret-down:     ( content: '\f0d7' ),
+  caret-up:       ( content: '\f0d8' )
+);
+@mixin font-icon-style {
+  @each $type, $map in $font-icon-map {
+    .mf-icon-#{$type} {
+      &::before {
+        content: map_get($map, content);
+      }
+    }
+  }
+}

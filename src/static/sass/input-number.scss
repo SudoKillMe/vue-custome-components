@@ -21,15 +21,18 @@
     width: $input-normal-height;
     height: $input-normal-height;
     border-left: 1px solid $light-gray;
+    cursor: pointer;
   }
   &--increase {
     right: 0;
-
-    &::after {
-      content: '\f067';
-    }
   }
   &--decrease {
     right: $input-normal-height;
+  }
+  &--increase.is-disabled, &--decrease.is-disabled {
+    cursor: not-allowed;
+    &:hover .mf-icon-plus, &:hover .mf-icon-minus {
+      color: $dark-gray;
+    }
   }
 }

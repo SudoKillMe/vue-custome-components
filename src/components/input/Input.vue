@@ -7,11 +7,15 @@
         :placeholder="placeholder"
         @focus="innerFocus"
         @blur="innerBlur"
-        :value="currentValue"
+        :value="model"
         v-model="model">
+      <i class="mf-input--icon"
+        :class="{
+          [`mf-icon-${icon}`]: icon
+        }"></i>
       <div class="mf-input-autocomplete" v-if="_autocomplete" >
         <div class="mf-autocomplete-item"
-           v-for="item in matchList"
+           v-for="item in autocompleteList"
            @mousedown="chooseItem(item)" >
           <h4 class="mf-autocomplete-item-title">{{ item.title }}</h4>
           <p class="mf-autocomplete-item-desc">{{ item.content }}</p>
@@ -28,38 +32,40 @@ export default {
   data() {
     return {
       focus: false,
-      currentValue: '',
+     // currentValue: '',
 //      matchList: []
     }
   },
 
   props: {
+      value: {},
       placeholder: String,
       autocomplete: Boolean,
-      autocompleteList: Array
+      autocompleteList: Array,
+      icon: String
   },
 
   computed: {
     model: {
       get() {
-        return this.currentValue;
+        return this.value;
       },
       set(val) {
-        this.currentValue = val;
+        this.$emit('input', val);
       }
     },
     _autocomplete() {
       return this.focus && this.autocomplete;
     },
-    matchList() {
-      let copy = this.autocompleteList.slice(0);
-        this.autocompleteList.forEach( function(ele, index) {
-          if ( ele.title.indexOf(this.currentValue) === -1 ) {
-            copy.splice(index, 1);
-          }
-        }, this );
-      return copy;
-    }
+//    matchList() {
+//      let copy = this.autocompleteList.slice(0);
+//        this.autocompleteList.forEach( function(ele, index) {
+//          if ( ele.title.indexOf(this.currentValue) === -1 ) {
+//            copy.splice(index, 1);
+//          }
+//        }, this );
+//      return copy;
+//    }
   },
 
   methods: {

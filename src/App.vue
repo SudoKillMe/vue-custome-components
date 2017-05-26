@@ -33,14 +33,14 @@
       </mf-checkbox-group>
       <hr>
       <div class="input-wrap">   
-         <mf-input autocomplete :autocomplete-list="list" placeholder="我是placeholder"></mf-input>
+         <mf-input :autocomplete-list="list" placeholder="我是placeholder" icon="caret-down"></mf-input>
       </div>
      
         <span>dddddddddddddddddddddddddd</span>
       <hr>
       <br><br>
       <div class="input-wrap">
-          <mf-input-number></mf-input-number>
+          <mf-input-number v-model="numberModel" :min="5" :max="200"></mf-input-number>
       </div>
 
   </div>
@@ -66,7 +66,8 @@ export default {
           list: [
               { title: 'title', content: 'content' },
               { title: 'title2', content: 'content2' }
-          ]
+          ],
+          numberModel: 1
       }
   },
 

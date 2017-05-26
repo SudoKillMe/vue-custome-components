@@ -1,11 +1,41 @@
 @import "common";
+@import "mixin";
+@font-face {
+  font-family: 'mf-font';
+  src: url('../fonts/fontawesome-webfont.ttf');
+}
 body { font-family: $font-family }
-//body {
-//  font-family:mf-font; }
-[class^=mf-icon-] {
-  font-family: mf-font!important;
+
+[class*=mf-icon-] {
+  font-family: 'mf-font'!important;
   display: inline-block;
   vertical-align: baseline;
   line-height: 1;
   font-weight: 400;
+  font-style: normal;
+  color: $dark-gray
 }
+
+.mf-input--icon {
+  position: absolute;
+  width: 35px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  text-align: center;
+  transition: all .3s;
+
+  &::after {
+    content: '';
+    height: 100%;
+    width: 0;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.mf-icon-parent:hover [class^=mf-icon-] {
+  color: $blue;
+}
+
+@include font-icon-style;
